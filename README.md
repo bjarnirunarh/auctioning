@@ -1,4 +1,4 @@
-# auctioning
+# Auctioning
 Project connected to my Master Thesis in 2016.
 
 ## How to view
