@@ -1,0 +1,22 @@
+{
+  "name": "auctioning",
+  "description": "auctioning system",
+  "main": "",
+  "authors": [
+    "bjarnirunarh"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "auction"
+  ],
+  "homepage": "https://github.com/bjarnirunarh/auctioning",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
