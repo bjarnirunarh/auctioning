@@ -1,7 +1,6 @@
 doctype html
 html(lang=is)
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/css/styles.css')
-  body
-    block content
+	include ./includes/header.jade
+	body
+		block content
+		include ./includes/footer.jade
