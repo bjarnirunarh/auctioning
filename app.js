@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var moment = require('moment');
-//var jQuery = require('jquery');
-//var bootstrap = require('bootstrap');
+global.jQuery = require('jquery');
+
 
 var notFoundHandler = require('./middleware/notFoundHandler');
 var errorHandler = require('./middleware/errorHandler');
@@ -27,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public/Images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
