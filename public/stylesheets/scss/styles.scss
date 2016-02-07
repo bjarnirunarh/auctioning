@@ -1,8 +1,125 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*
+ * styles.scss
+ */
+
+ * { margin: 0; }
+
+html { margin: 0; height: 100%; max-width: 1600px;}
+
+body { 
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #fff; height: 100%; min-height: 100%;
 }
 
-a {
-  color: #00B7FF;
+/*
+ * VARIABLES FOR THE SITE
+ */
+$navHeight: 3em;
+$headerHeight: 250px;
+$contentHeight: -webkit-calc(100% - #{$headerHeight});
+$contentHeight: -moz-calc(100% - #{$headerHeight});
+$contentHeight: calc(100% - #{$headerHeight});
+$footerHeight: 180px;
+
+/*
+ * MULTIPLE USED SCSS CLASSES
+ */
+.fixedSizeWrapper{
+    margin: 0; position: absolute; display: block;
+    max-width:80%; width:80%; margin-left: 10%;
+}
+
+.wrapper{
+    margin: 0; position: relative; display: block;
+    max-width:80%; width:80%; margin-left: 10%;
+}
+
+/*
+ * NAVIGATION BAR STYLES
+ */
+nav {
+	background: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $navHeight;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
+    display: block;
+    z-index: 100;
+    .navContent{
+        @extend .fixedSizeWrapper;
+    }
+}
+
+/*
+ * HEADER STYLES
+ */
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    height:$headerHeight;
+    display: block;
+    .headerBackground{
+        background: #ffffff url("/images/header.jpg") no-repeat;
+        background-position: center -400px;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index:-10;
+    }
+    .headerContent{
+        @extend .fixedSizeWrapper;
+        top:25%;
+        left:0;
+        h1 {
+            font-size:300%;
+        }
+    }
+}
+
+
+/*
+ * PAGE CONTENT STYLES
+ */
+div.contentWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    min-height: $contentHeight;
+    height: auto !important;
+    height: $contentHeight;
+    margin-bottom: -$footerHeight; 
+    .pageContent{
+        @extend .wrapper;    
+    }
+}
+
+/*
+ * FOOTER STYLES
+ */ 
+div.contentWrapper:after {
+    content: "";
+    display: block;
+}
+
+footer, div.contentWrapper:after {
+    height: $footerHeight; 
+}
+
+footer {
+    background-color: #C8C8C8;
+    height: $footerHeight; 
+    .footerContent {
+        @extend .fixedSizeWrapper;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    
 }

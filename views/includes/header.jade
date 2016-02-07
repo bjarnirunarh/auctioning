@@ -4,8 +4,8 @@ head
 	link(rel='stylesheet', gulpsrc='/node_modules/bootstrap/dist/css/bootstrap.min.css')
 	link(rel='stylesheet', href='/stylesheets/css/styles.css')
 body
+	include navbar.jade
 	header
-		p Haus
-		h1= title
-		p Welcome to #{title}
-		a Er þetta drasl tilbúið
+		.headerBackground
+		.headerContent
+			h1= title
