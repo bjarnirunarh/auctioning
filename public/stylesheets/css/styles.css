@@ -16,6 +16,9 @@ body {
   min-height: 100%; }
 
 /*
+ * IMPORTS
+ */
+/*
  * VARIABLES FOR THE SITE
  */
 /*
@@ -50,6 +53,24 @@ nav {
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
   display: block;
   z-index: 100; }
+
+.flag {
+  width: 16px;
+  height: 11px;
+  background: url("/images/flags.png") no-repeat; }
+
+.flagbutton {
+  height: 34px;
+  width: 40px; }
+
+.flag.flag-us {
+  background-position: -160px -154px; }
+
+.flag.flag-is {
+  background-position: -192px -66px; }
+
+.flag.flag-gb {
+  background-position: -176px -44px; }
 
 /*
  * HEADER STYLES

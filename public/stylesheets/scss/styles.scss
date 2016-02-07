@@ -12,6 +12,11 @@ body {
 }
 
 /*
+ * IMPORTS
+ */ 
+//@import "yourfile";
+
+/*
  * VARIABLES FOR THE SITE
  */
 $navHeight: 3em;
@@ -51,6 +56,13 @@ nav {
         @extend .fixedSizeWrapper;
     }
 }
+
+// Flags
+.flag { width: 16px; height: 11px; background:url("/images/flags.png") no-repeat }
+.flagbutton { height: 34px; width: 40px;}
+.flag.flag-us {background-position: -160px -154px}
+.flag.flag-is {background-position: -192px -66px}
+.flag.flag-gb {background-position: -176px -44px}
 
 /*
  * HEADER STYLES
