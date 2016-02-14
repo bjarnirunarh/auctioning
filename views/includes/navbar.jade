@@ -1,8 +1,77 @@
 //- navbar.jade
-nav
-	.navContent
-		button(type="button" class="btn btn-primary btn-md") 
-			span(class="glyphicon glyphicon-user")
-		button(type="button" class="btn btn-primary btn-md flagbutton") 
-			if(locale)
-			div(src="" class="flag flag-is" alt="Iceland")
+nav(class="navbar navbar-default navbar-fixed-top" role="navigation")
+	div(class="navContent")
+		div(class="navbar-header")
+			button(type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+				span(class="sr-only") Toggle navigation
+				span(class="icon-bar")
+				span(class="icon-bar")
+				span(class="icon-bar")
+			a(class="navbar-brand" href="/")=pageTitle
+		div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+			ul(class="nav navbar-nav")
+				li
+					a(href="/") About us 
+				li(class="dropdown")
+					a(href="/" class="dropdown-toggle" data-toggle="dropdown") Pages 
+						strong(class="caret")
+					ul(class="dropdown-menu")
+						li 
+							a(href="http://www.jquery2dotnet.com") Action
+						li 
+							a(href="http://www.jquery2dotnet.com") Another action
+						li
+							a(href="http://www.jquery2dotnet.com") Something else here
+						li(class="divider")
+						li 
+							a(href="http://www.jquery2dotnet.com") Separated link
+						li(class="divider")
+						li
+							a(href="http://www.jquery2dotnet.com") One more separated link
+			//-form(class="navbar-form navbar-left" role="search")
+				div(class="form-group")
+					input(type="text" class="form-control" placeholder="Search")
+				button(type="submit" class="btn btn-default") Submit
+			ul(class="nav navbar-nav navbar-right")
+				li(class="dropdown")
+					a(href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown") 
+						span(class="glyphicon glyphicon-user")
+						p(style="display: inline;") Sign in 
+						strong(class="caret")
+					ul(class="dropdown-menu" style="padding: 15px; min-width: 250px;")
+						li
+							div(class="row")
+								div(class="col-md-12")
+									form(class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav")
+										div(class="form-group")
+											label(class="sr-only" for="siteUsername") Email address
+											input(type="email" class="form-control" id="siteUsername" placeholder=pageTitle required)
+										div(class="form-group")
+											label(class="sr-only" for="sitePassword") Password
+											input(type="password" class="form-control" id="sitePassword" placeholder=pageTitle required)
+										div(class="checkbox")
+											label
+												input(type="checkbox")
+												p(style="display: inline;")=pageTitle
+										div(class="form-group")
+											button(type="submit" class="btn btn-success btn-block") Sign in
+						li(class="divider")
+						li
+							input(class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign Up")
+							input(class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Forgot Password")
+				li
+					a(href="/" class="dropdown-toggle" data-toggle="dropdown")
+						if locale=='is'
+							span(class="flag-icon flag-icon-is")
+						else
+							span(class="flag-icon flag-icon-us")
+						strong(class="caret")
+					ul(class="dropdown-menu" style="min-width: 100px;")
+						li(class="flag-lang") 
+							a(href="/")
+								span(class="flag-icon flag-icon-is")
+								p(style="display: inline;")=icelandic
+						li(class="flag-lang")  
+							a(href="/")
+								span(class="flag-icon flag-icon-us")
+								p(style="display: inline;")=english

@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var moment = require('moment');
+global.i18n = require('i18n');
 global.jQuery = require('jquery');
 
 var notFoundHandler = require('./middleware/notFoundHandler');
@@ -25,20 +26,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// Language and locale handeling
-var Localize = require('localize');
-var myLocalize = new Localize('strings', '', 'is');
-
-/*app.use(function(request, response, next) {
-    var lang = request.session.lang || "is";
-    myLocalize.setLocale(lang);
-    next();
-});*/
-
-// Multiply used varaibles for the app
-title = myLocalize.translate("Uppboð");
-siteLocale = myLocalize.translate("is");
-
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -53,6 +40,23 @@ app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
+
+
+// Set up locales
+app.use(i18n.init);
+i18n.configure({
+    // Setup some locales
+    locales: ['is', 'en'],
+    // Set default locale to Icelandic
+    defaultLocale: 'is',
+    // Set directory 
+    directory: __dirname + '/public/locales',
+    // Set the cookie name
+    cookieName: 'locale'
+});
+
+// change locale method
+
 
 // Gefum viewum aðgang að moment library
 app.locals.moment = moment;

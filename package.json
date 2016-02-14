@@ -31,13 +31,15 @@
     "gulp-live-server": "0.0.29",
     "gulp-sass": "^2.1.1",
     "gulp-sass-lint": "^1.1.1",
+    "i18n": "^0.6.0",
+    "i18n-2": "^0.6.3",
     "jade": "~1.11.0",
     "jquery": "^2.2.0",
-    "localize": "^0.4.7",
     "moment": "^2.10.6",
     "morgan": "~1.6.1",
     "pg": "^4.4.3",
     "serve-favicon": "^2.3.0",
+    "underscore": "^1.8.3",
     "xss": "^0.2.7"
   },
   "devDependencies": {

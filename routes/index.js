@@ -1,18 +1,25 @@
 var express = require('express');
 var router = express.Router();
-
-// Language and locale handeling
-var Localize = require('localize');
-var myLocalize = new Localize('strings', '', 'is');
-
-// Variables strings array to be used in the jade file
-var stringsArray = { 
-	pageTitle: 'Auctioning',
-  	lang: myLocalize.translate("Tungumál") 
-};
+var underscore = require('underscore');
 
 /* GET home page */
 router.get('/', function(req, res, next) {
+	var layoutStringsArray = ({
+		// Variables strings array to be used in all jade files that extend layout
+		pageTitle: i18n.__("Uppboð"),
+  		locale: i18n.getLocale(),
+  		// Navbar strings
+  		icelandic: i18n.__("Íslenska"),
+  		english: i18n.__("Enska"),
+
+	});
+	var indexStringsArray = ({
+		// Variables strings array to be used in this jade file
+		
+	});
+
+	stringsArray = underscore.extend(layoutStringsArray, indexStringsArray);
+
 	res.render('index', stringsArray);
 });
 

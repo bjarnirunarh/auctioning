@@ -2,14 +2,9 @@
  * styles.scss
  */
 
- * { margin: 0; }
-
-html { margin: 0; height: 100%; max-width: 1600px;}
-
-body { 
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #fff; height: 100%; min-height: 100%;
-}
+* { margin: 0; }
+html { margin: 0; height: 100%;}
+body { font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; background-color: #fff; height: 100%; min-height: 100%;}
 
 /*
  * IMPORTS
@@ -19,8 +14,8 @@ body {
 /*
  * VARIABLES FOR THE SITE
  */
-$navHeight: 3em;
-$headerHeight: 250px;
+$navHeight: 52px;
+$headerHeight: 252px;
 $contentHeight: -webkit-calc(100% - #{$headerHeight});
 $contentHeight: -moz-calc(100% - #{$headerHeight});
 $contentHeight: calc(100% - #{$headerHeight});
@@ -44,25 +39,37 @@ $footerHeight: 180px;
  */
 nav {
 	background: rgba(255, 255, 255, 0.95);
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: $navHeight;
+    margin-bottom: 0;
     box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
-    display: block;
     z-index: 100;
     .navContent{
         @extend .fixedSizeWrapper;
+        #login-nav input { margin-bottom: 15px; }  
     }
 }
 
 // Flags
-.flag { width: 16px; height: 11px; background:url("/images/flags.png") no-repeat }
-.flagbutton { height: 34px; width: 40px;}
-.flag.flag-us {background-position: -160px -154px}
-.flag.flag-is {background-position: -192px -66px}
-.flag.flag-gb {background-position: -176px -44px}
+.flag-icon-is { background-image: url(/images/is.svg);}
+.flag-icon-us {background-image: url(/images/us.svg);}
+.flag-icon-background {background-size: contain; background-position: 50%; background-repeat: no-repeat;}
+.flag-icon {background-size: contain; background-position: 50%; background-repeat: no-repeat; position: relative; display: inline-block;width: 1.6em; line-height: 1.3em;}
+.flag-icon:before {content: "\00a0";}
+
+// Small navigation bar on main content site
+.navbar-primary .navbar { background:#48D1CC; border-bottom:none; }
+.navbar-primary .navbar .nav > li > a {color: #501762;}
+.navbar-primary .navbar .nav > li > a:hover {color: #fff; background-color: #8e49a3;}
+.navbar-primary .navbar .nav .active > a,.navbar .nav .active > a:hover {color: #fff; background-color: #501762;}
+.navbar-primary .navbar .nav li > a .caret, .tnav .navbar .nav li > a:hover .caret {border-top-color: #fff;border-bottom-color: #fff;}
+.navbar-primary .navbar .nav > li.dropdown.open.active > a:hover {}
+.navbar-primary .navbar .nav > li.dropdown.open > a {color: #fff;background-color: #9f58b5;border-color: #fff;}
+.navbar-primary .navbar .nav > li.dropdown.open.active > a:hover .caret, .tnav .navbar .nav > li.dropdown.open > a .caret {border-top-color: #fff;}
+.navbar-primary .navbar .navbar-brand {color:#fff;}
+.navbar-primary .navbar .nav.pull-right {margin-left: 10px; margin-right: 0;}
+.navbar-xs .navbar-primary .navbar { min-height:28px; height: 28px; }
+.navbar-xs .navbar-primary .navbar .navbar-brand{ padding: 0px 12px;font-size: 16px;line-height: 28px; }
+.navbar-xs .navbar-primary .navbar .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: 28px; }
 
 /*
  * HEADER STYLES
@@ -71,11 +78,12 @@ header {
     position: relative;
     top: 0;
     left: 0;
+    margin-top: 0;
     height:$headerHeight;
     display: block;
     .headerBackground{
-        background: #ffffff url("/images/header.jpg") no-repeat;
-        background-position: center -400px;
+        background: #ffffff url("/images/header.jpg");// no-repeat;
+        background-position: center -380px;
         position: relative;
         top: 0;
         left: 0;
@@ -86,10 +94,11 @@ header {
     }
     .headerContent{
         @extend .fixedSizeWrapper;
-        top:25%;
+        top:18%;
         left:0;
         h1 {
             font-size:300%;
+            text-align:right;
         }
     }
 }
@@ -132,6 +141,16 @@ footer {
     }
 }
 
-@media only screen and (min-width: 768px) {
-    
+@media only screen and (max-width: 320px) {
+  
+}
+
+@media (min-width: 768px){
+    .navbar-toggle {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+  
 }
