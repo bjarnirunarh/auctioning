@@ -2,5 +2,9 @@ doctype html
 html(lang=locale)
 	include ./includes/header.jade
 	body
-		block content
+		.contentWrapper
+			include ./includes/navbar-xs.jade
+			.container
+				div(class="pageContent row")
+					block content
 		include ./includes/footer.jade

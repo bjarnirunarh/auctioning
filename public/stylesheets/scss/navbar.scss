@@ -1,0 +1,71 @@
+/*
+ * NAVIGATION BAR STYLES
+ */
+nav { background: rgba(255, 255, 255, 0.95); width: 100%; margin-bottom: 0; box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5); z-index: 100; .navContent{ @extend .fixedSizeWrapper;} }
+
+// Flags
+.flag-icon-is { background-image: url(/images/is.svg); }
+.flag-icon-us { background-image: url(/images/us.svg); }
+.flag-icon-background { background-size: contain; background-position: 50%; background-repeat: no-repeat; }
+.flag-icon { background-size: contain; background-position: 50%; background-repeat: no-repeat; position: relative; display: inline-block;width: 1.6em; line-height: 1.3em; }
+.flag-icon:before { content: "\00a0";}
+
+// Custom Navbar dropdown menu large
+#flag-dropdown-menu{ min-width:100px; }
+#auctionGlyph{ display: inline; }
+//.navbar-nav { float: left; margin: 0; }
+//.navbar-nav>li { float: left; }
+//.nav-header{ float:left; }
+#navbar-not-collapse{ float: right!important; margin: 0px; padding:0px; ul{ margin: 0px; padding: 0px; } .nav>li>a{padding-top:15px; padding-bottom:15px; }}   
+
+@media (min-width: 768px){
+    .navbar-right {
+        float: right!important;
+        margin-right: 0px;
+    }       
+}
+
+@media (max-width: 768px){
+         
+}
+
+/*
+ *  Main Navbar collapse customization
+ */
+@media (max-width: 992px){
+    .dropdown-toggle #inlineGlyph{
+        display: none;
+    }
+    #nav-lg-left .nav>li>a{
+        padding-left:7px;
+        padding-right:7px;
+        font-size:13px;
+    }
+    //.navbar-brand{float:left;}   
+}
+
+@media (min-width: 769px){
+       
+}
+
+@media (max-width: 768px){
+       
+}
+
+
+@media (min-width: 460px){ 
+    #not-collapse>a>span{ display:none; } 
+}
+
+
+// Specialized look
+//#not-collapse>a>span{ display:none; } 
+.login-button{ padding:3px 0px!important; }
+//.toggle-lg{float:left; display:none;}
+
+/*@media (max-width: 768px){
+    li[class*="collapse"]>a, #not-collapse>a{
+        padding-top: 15px; padding-bottom:15px;
+    }    
+}*/
+

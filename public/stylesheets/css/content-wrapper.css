@@ -1,0 +1,17 @@
+/*
+ * PAGE CONTENT STYLES
+ */
+/*
+ * VARIABLES FOR THE SITE
+ */
+div.contentWrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  min-height: calc(100% - 252px);
+  height: auto !important;
+  height: calc(100% - 252px);
+  margin-bottom: -210px; }
+  div.contentWrapper .pageContent {
+    padding-bottom: 40px; }

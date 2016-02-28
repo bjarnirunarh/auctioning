@@ -1,8 +1,58 @@
 //- footer.jade
 footer
-	.footerContent
-		p Fótur
-
+	.container
+		div(class="row footerContent")
+			div(class="col-md-3 col-sm-6 col-xs-12")
+				h3 Fiskskipti ehf
+				ul(class="list-unstyled footer-lists")
+					li: a(href="https://goo.gl/maps/jWB37SCX4Qn")
+							span(class="glyphicon glyphicon-home")
+							p Gullsmári 10, 201 Kópavogur
+					li: a(href="mailto:bjarnirunar@heimisson.net")
+							span(class="glyphicon glyphicon-envelope")
+							p fsk@fiskskipti.is
+					li: a(href="telephone:+3548495333")
+							span(class="fa fa-phone")
+							p +354 849 5333	
+			div(class="col-md-3 col-sm-6 col-xs-12")
+				h3 Nýtt uppboðskerfi
+				ul(class="list-unstyled footer-lists")
+					li: a(href="/") 
+							span(class="fa fa-gavel")
+							p #{__("startAuction")} 
+					li: a(href="/") 
+							span(class="fa fa-info")
+							p Um uppboðskerfið
+					li: a(href="/")   
+							span(class="fa fa-file-pdf-o")
+							p Verkefni um gerð kerfisins
+			div(class="col-md-3 col-sm-6 col-xs-12")
+				h3 Fróðleikur
+				ul(class="list-unstyled footer-lists")
+					ul(class="list-unstyled footer-lists")
+					li: a(href="/") 
+							span(class="fa fa-gavel")
+							p #{__("startAuction")} 
+					li: a(href="/") 
+							span(class="fa fa-info")
+							p Um uppboðskerfið
+					li: a(href="/")   
+							span(class="fa fa-file-pdf-o")
+							p Verkefni um gerð kerfisins
+			div(class="col-md-3 col-sm-6 col-xs-12")
+				h3 Ýmislegt
+				ul(class="list-unstyled footer-lists")
+					ul(class="list-unstyled footer-lists")
+					li: a(href="/") 
+							span(class="fa fa-gavel")
+							p #{__("startAuction")} 
+					li: a(href="/") 
+							span(class="fa fa-info")
+							p Um uppboðskerfið
+					li: a(href="/")   
+							span(class="fa fa-file-pdf-o")
+							p Verkefni um gerð kerfisins
 script(src='node_modules/jquery/dist/jquery.min.js')
 script(src='node_modules/bootstrap/dist/js/bootstrap.min.js')
+script(src='node_modules/jquery.actual/jquery.actual.js')
 script(src='/javascripts/scripts.js')

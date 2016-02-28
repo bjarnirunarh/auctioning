@@ -6,7 +6,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var moment = require('moment');
-global.i18n = require('i18n');
+var dotenv = require('dotenv').config();
+var i18n_options = {
+    default : 'is',
+    enabled : ['is', 'en'],
+    'dir': '/public/locales/'
+};
+global.i18n = require('node-i18n')(i18n_options);
 global.jQuery = require('jquery');
 
 var notFoundHandler = require('./middleware/notFoundHandler');
@@ -17,7 +23,9 @@ var SESSION_SECRET = process.env.SESSION_SECRET;
 
 var isDev = process.env.NODE_ENV === 'development';
 
+// Make reference to the route-handler scripts we use.
 var routes = require('./routes/index');
+var auth = require('./routes/auth');
 var users = require('./routes/users');
 
 var app = express();
@@ -25,7 +33,12 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(i18n.middleware); //call before app.use(app.router)
 
+// change locale method
+
+
+// Useages
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -36,27 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // node modules path
 app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 
-
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
-
-
-// Set up locales
-app.use(i18n.init);
-i18n.configure({
-    // Setup some locales
-    locales: ['is', 'en'],
-    // Set default locale to Icelandic
-    defaultLocale: 'is',
-    // Set directory 
-    directory: __dirname + '/public/locales',
-    // Set the cookie name
-    cookieName: 'locale'
-});
-
-// change locale method
-
 
 // Gefum viewum aðgang að moment library
 app.locals.moment = moment;
@@ -64,7 +59,34 @@ app.locals.moment = moment;
 // HTML verður ekki minnkað í eina línu
 app.locals.pretty = isDev;
 
+var cookie = { 
+    domain: '',
+    httpOnly: true,
+    secure: false 
+};
+
+app.use(session({
+    //secret: SESSION_SECRET,
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: cookie,
+    name: SESSION_NAME
+}));
+
+
+app.use(function (req, res, next) {
+
+    if (req.session.user) {
+        app.locals.user = req.session.user;
+    }
+
+    next();
+});
+
+// tell express which script should handle which route
 app.use('/', routes);
+app.use('/', auth);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

@@ -1,0 +1,82 @@
+/*
+ *  XS NAVIGATION BAR STYLES
+ */
+.navbar-primary .navbar {
+  background: #333333;
+  border-bottom: none; }
+  .navbar-primary .navbar .navbar-brand {
+    color: #fff; }
+  .navbar-primary .navbar .nav li a {
+    color: #C8C8C8; }
+  .navbar-primary .navbar .nav li a:hover {
+    color: #fff;
+    background-color: #909090; }
+  .navbar-primary .navbar .nav .open > a, .navbar-primary .navbar .nav .open > a:focus, .navbar-primary .navbar .nav .open > a:hover {
+    color: #333333;
+    background-color: #fff; }
+  .navbar-primary .navbar .nav .active a {
+    color: #fff;
+    background-color: #585858; }
+  .navbar-primary .navbar .nav .pull-right {
+    margin-left: 10px;
+    margin-right: 0; }
+
+.navbar-primary .navbar .nav .dropdown-menu li a {
+  color: #333; }
+
+.navbar-primary .navbar .nav .dropdown-menu li a:hover, .navbar-primary .navbar .nav .dropdown-menu li a:focus {
+  background-color: #f5f5f5; }
+
+.navbar-xs .navbar-primary .navbar {
+  min-height: 28px;
+  height: 28px; }
+  .navbar-xs .navbar-primary .navbar .navbar-brand {
+    padding: 0px 12px 0px 0px;
+    font-size: 15px;
+    line-height: 28px;
+    max-width: 150px !important; }
+  .navbar-xs .navbar-primary .navbar .navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 28px; }
+  .navbar-xs .navbar-primary .navbar .navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 3px 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    border-color: #909090; }
+    .navbar-xs .navbar-primary .navbar .navbar-toggle .icon-bar {
+      display: block;
+      width: 15px;
+      height: 1.5px;
+      background-color: #C8C8C8;
+      border-radius: 1px; }
+    .navbar-xs .navbar-primary .navbar .navbar-toggle .icon-bar + .icon-bar {
+      margin-top: 3.5px; }
+  .navbar-xs .navbar-primary .navbar .navbar-toggle:hover, .navbar-xs .navbar-primary .navbar .navbar-toggle:focus {
+    background-color: #909090; }
+    .navbar-xs .navbar-primary .navbar .navbar-toggle:hover .icon-bar, .navbar-xs .navbar-primary .navbar .navbar-toggle:focus .icon-bar {
+      background-color: #fff; }
+
+/*
+ *  XS Navbar collapse customization
+ *  Small navigation bara collapses at 768px width
+ */
+#navbarxs-not-collapse {
+  float: right !important;
+  margin: 0px;
+  padding: 0px; }
+  #navbarxs-not-collapse div.navbar-nav {
+    margin: 0; }
+  #navbarxs-not-collapse ul {
+    margin: 0px;
+    padding: 0px; }
+    #navbarxs-not-collapse ul li {
+      float: left; }
+
+@media (max-width: 992px) {
+  nav li a #inlineGlyph {
+    display: none; } }

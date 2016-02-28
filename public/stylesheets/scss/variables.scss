@@ -1,0 +1,12 @@
+/*
+ * VARIABLES FOR THE SITE
+ */
+$navHeight: 52px;
+$headerHeight: 252px;
+$contentHeight: -webkit-calc(100% - #{$headerHeight});
+$contentHeight: -moz-calc(100% - #{$headerHeight});
+$contentHeight: calc(100% - #{$headerHeight});
+$footerHeight: 210px;
+$footerHeight2: 360px;  
+$footerHeight3: 680px;  
+

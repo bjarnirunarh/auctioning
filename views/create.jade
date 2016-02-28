@@ -1,0 +1,19 @@
+extends layout
+include mixins
+
+block content
+  h3 Búa til notanda
+  if submitted && errors
+    h2 Villur komu upp
+    .errors
+      ul
+        each field in form
+          if !field.valid && field.validationString
+            li: label(for=field.name)= field.validationString
+
+  form(method='post', action='/create' class='col-md-6 col-xs-10')
+    each field in form
+      +field(field, submitted)
+    button(type="submit" class="btn btn-primary") Skrá mig
+
+p: a(href='/login') Innskrá notanda

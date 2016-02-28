@@ -1,0 +1,19 @@
+extends layout
+include mixins
+
+block content
+  h1 Innskrá
+
+  if submitted && errors
+    .errors
+      ul
+        each field in form
+          if !field.valid && field.validationString
+            li: label(for=field.name)= field.validationString
+        if loginError
+          li Villa kom upp við innskráningu
+
+  form(method='post', action='/login')
+    each field in form
+      +field(field, submitted)
+    div: button Innskrá

@@ -2,143 +2,84 @@
  * styles.scss
  */
 
+ /*
+ * IMPORTS
+ */
+@import "/node_modules/font-awesome/css/font-awesome.min.css";
+@import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+/*
+ * MAIN SETTINGS
+ */
+
 * { margin: 0; }
 html { margin: 0; height: 100%;}
 body { font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; background-color: #fff; height: 100%; min-height: 100%;}
 
 /*
- * IMPORTS
- */ 
-//@import "yourfile";
-
-/*
  * VARIABLES FOR THE SITE
  */
-$navHeight: 52px;
-$headerHeight: 252px;
-$contentHeight: -webkit-calc(100% - #{$headerHeight});
-$contentHeight: -moz-calc(100% - #{$headerHeight});
-$contentHeight: calc(100% - #{$headerHeight});
-$footerHeight: 180px;
+@import "variables.scss";
 
 /*
- * MULTIPLE USED SCSS CLASSES
+ * MULTIPLE USED SCSS CLASSES AND ID'S
  */
+
+ // Wrapper when element size is fixed
 .fixedSizeWrapper{
     margin: 0; position: absolute; display: block;
-    max-width:80%; width:80%; margin-left: 10%;
+    max-width:80%; width:80%; margin-left: 10%; margin-right: 10%;
 }
 
+// Wrapper when element size is not fixed
 .wrapper{
     margin: 0; position: relative; display: block;
-    max-width:80%; width:80%; margin-left: 10%;
+    max-width:80%; width:80%; margin-left: 10%; margin-right: 10%;
 }
 
-/*
- * NAVIGATION BAR STYLES
- */
-nav {
-	background: rgba(255, 255, 255, 0.95);
-    width: 100%;
-    margin-bottom: 0;
-    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);
-    z-index: 100;
-    .navContent{
-        @extend .fixedSizeWrapper;
-        #login-nav input { margin-bottom: 15px; }  
-    }
-}
+// Make glypicons and p elements inline
+#inlineGlyph{ display: inline; }
+span.glyphicon, span.fa{width:14px; height:14px; text-align: center; margin-right:4px;}
 
-// Flags
-.flag-icon-is { background-image: url(/images/is.svg);}
-.flag-icon-us {background-image: url(/images/us.svg);}
-.flag-icon-background {background-size: contain; background-position: 50%; background-repeat: no-repeat;}
-.flag-icon {background-size: contain; background-position: 50%; background-repeat: no-repeat; position: relative; display: inline-block;width: 1.6em; line-height: 1.3em;}
-.flag-icon:before {content: "\00a0";}
-
-// Small navigation bar on main content site
-.navbar-primary .navbar { background:#48D1CC; border-bottom:none; }
-.navbar-primary .navbar .nav > li > a {color: #501762;}
-.navbar-primary .navbar .nav > li > a:hover {color: #fff; background-color: #8e49a3;}
-.navbar-primary .navbar .nav .active > a,.navbar .nav .active > a:hover {color: #fff; background-color: #501762;}
-.navbar-primary .navbar .nav li > a .caret, .tnav .navbar .nav li > a:hover .caret {border-top-color: #fff;border-bottom-color: #fff;}
-.navbar-primary .navbar .nav > li.dropdown.open.active > a:hover {}
-.navbar-primary .navbar .nav > li.dropdown.open > a {color: #fff;background-color: #9f58b5;border-color: #fff;}
-.navbar-primary .navbar .nav > li.dropdown.open.active > a:hover .caret, .tnav .navbar .nav > li.dropdown.open > a .caret {border-top-color: #fff;}
-.navbar-primary .navbar .navbar-brand {color:#fff;}
-.navbar-primary .navbar .nav.pull-right {margin-left: 10px; margin-right: 0;}
-.navbar-xs .navbar-primary .navbar { min-height:28px; height: 28px; }
-.navbar-xs .navbar-primary .navbar .navbar-brand{ padding: 0px 12px;font-size: 16px;line-height: 28px; }
-.navbar-xs .navbar-primary .navbar .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: 28px; }
-
-/*
+ /*
  * HEADER STYLES
  */
-header {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-top: 0;
-    height:$headerHeight;
-    display: block;
-    .headerBackground{
-        background: #ffffff url("/images/header.jpg");// no-repeat;
-        background-position: center -380px;
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        z-index:-10;
-    }
-    .headerContent{
-        @extend .fixedSizeWrapper;
-        top:18%;
-        left:0;
-        h1 {
-            font-size:300%;
-            text-align:right;
-        }
-    }
-}
+@import "header.scss";
+
+/*
+ * NAVIGATION BARS STYLES
+ */
+@import "navbar.scss";
 
 
 /*
  * PAGE CONTENT STYLES
  */
-div.contentWrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: block;
-    min-height: $contentHeight;
-    height: auto !important;
-    height: $contentHeight;
-    margin-bottom: -$footerHeight; 
-    .pageContent{
-        @extend .wrapper;    
-    }
-}
+@import "content-wrapper.scss";
+
+/*
+ *  XS NAVIGATION BARS STYLES
+ */
+@import "navbar-xs.scss";
 
 /*
  * FOOTER STYLES
  */ 
-div.contentWrapper:after {
-    content: "";
-    display: block;
-}
+@import "footer.scss";
 
-footer, div.contentWrapper:after {
-    height: $footerHeight; 
-}
 
-footer {
-    background-color: #C8C8C8;
-    height: $footerHeight; 
-    .footerContent {
-        @extend .fixedSizeWrapper;
-    }
+
+// Some Media Queries
+@media (max-width: 450px){
+	// Wrapper when element size is fixed
+	.fixedSizeWrapper{
+	    //max-width:90%; width:90%; margin-left: 5%; margin-right: 5%;
+	}
+
+	// Wrapper when element size is not fixed
+	.wrapper{
+	    //max-width:90%; width:90%; margin-left: 5%; margin-right: 5%;
+	} 
 }
 
 @media only screen and (max-width: 320px) {
@@ -146,9 +87,7 @@ footer {
 }
 
 @media (min-width: 768px){
-    .navbar-toggle {
-        display: none;
-    }
+
 }
 
 @media only screen and (min-width: 1200px) {

@@ -1,0 +1,22 @@
+/*
+ * PAGE CONTENT STYLES
+ */
+ @import "variables.scss";
+
+div.contentWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    min-height: $contentHeight;
+    height: auto !important;
+    height: $contentHeight;
+    margin-bottom: -$footerHeight; 
+    .pageContent{
+        //@extend .wrapper;
+        //padding-top: 10px; 
+        padding-bottom: 40px;
+
+
+    }
+}

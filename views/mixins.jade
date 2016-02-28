@@ -1,0 +1,19 @@
+//- Hjálpar mixin fyrir view
+
+
+//- Þar sem við fáum allar upplýsingar um formið frá route, þá getum við útbúið
+//- mixin sem birtir hvert field fyrir sig og merkir það gilt eða ekki ef við
+//- á. Styður bæði input með type og select
+mixin field(f, submitted)
+  //- class verður "field invalid" ef submitted && field er ekki valid
+  fieldset.form-group(class=submitted && !f.valid ? 'invalid' : undefined)
+    label(for=f.name)= f.label
+    if f.type === 'select'
+      select(id=f.name, name=f.name)
+        option(value='').form-control -Veljið-
+        each value in f.values
+          option(value=value, selected=value === f.value).form-control= value
+    else if f.type === 'textarea'
+      textarea(id=f.name, name=f.name, cols=20, rows=20).form-control=f.value
+    else
+      input(type=f.type, name=f.name, placeholder=f.label, value=f.value, id=f.name).form-control

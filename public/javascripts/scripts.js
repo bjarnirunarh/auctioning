@@ -6,16 +6,9 @@ $( document ).ready(function() {
     $('.dropdown-menu').find('form').click(function (e) {
         e.stopPropagation();
     });
-    /*$( "a" ).click(function( event ) {
- 		if(lang === "is"){
- 			lang = "en";
- 			//myLocalize.setLocale(lang);	
- 			console.log(lang);
- 		}
- 		else{
- 			lang = "is";
- 			//myLocalize.setLocale(lang);	
- 			console.log(lang);
- 		}	
-    });*/
+
+    // Making the navigation bars responsive
+    $(window).on('load resize', function () {
+		//responsiveNavigationBars();
+	});
 });

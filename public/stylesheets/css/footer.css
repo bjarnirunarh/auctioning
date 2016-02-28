@@ -1,0 +1,45 @@
+/*
+ * FOOTER STYLES
+ */
+/*
+ * VARIABLES FOR THE SITE
+ */
+div.contentWrapper:after {
+  content: "";
+  display: block; }
+
+footer, div.contentWrapper:after {
+  height: 210px; }
+
+footer {
+  background-color: #E8E8E8;
+  height: 210px; }
+  footer .footerContent {
+    padding-top: 20px; }
+    footer .footerContent h3 {
+      font-size: 16px;
+      font-weight: normal;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #999;
+      color: #666; }
+    footer .footerContent .footer-lists li {
+      padding: 2px; }
+      footer .footerContent .footer-lists li a {
+        color: #666;
+        text-decoration: none;
+        cursor: pointer; }
+        footer .footerContent .footer-lists li a span {
+          position: absolute;
+          top: inherit; }
+        footer .footerContent .footer-lists li a p {
+          padding-left: 20px; }
+      footer .footerContent .footer-lists li a:hover {
+        color: #C8C8C8; }
+
+@media only screen and (max-width: 970px) and (min-width: 750px) {
+  footer {
+    height: 360px; } }
+
+@media only screen and (max-width: 750px) {
+  footer {
+    height: 680px; } }
